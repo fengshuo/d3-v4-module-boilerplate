@@ -1,0 +1,24 @@
+{
+  "name": "d3-v4-module-boilerplate",
+  "version": "0.1.0",
+  "description": "boilerplate for writing d3 modules",
+  "main": "build/d3MyModule.js",
+  "jsnext:main": "index",
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && rollup -c",
+    "test": "tape 'test/**/*-test.js'",
+    "lint": "eslint index.js src; exit 0",
+    "prepublish": "npm run test && uglifyjs build/d3MyModule.js -c -m -o build/d3MyModule.min.js"
+  },
+  "author": "fengshuo",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^0.34.7",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "tape": "^4.6.0",
+    "uglify-js": "^2.7.0"
+  },
+  "dependencies": {
+    "d3-selection": "^1.0.2"
+  }
+}
